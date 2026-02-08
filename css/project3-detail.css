@@ -1,0 +1,123 @@
+/* --- 基礎設定 --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Noto Sans TC", sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.8;
+}
+
+/* 內容容器：左右留白，中間內容限寬 */
+.container {
+    width: 90%;
+    max-width: 1000px; /* 控制專案內容最大寬度 */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- 導覽列 --- */
+.navbar {
+    position: fixed;
+    top: 0; width: 100%;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 60px;
+    background: #fff; border-bottom: 1px solid #eee;
+    z-index: 1000;
+}
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #000; font-weight: 900; }
+.logo img { width: 30px; }
+.nav-links { display: flex; gap: 40px; list-style: none; }
+.nav-links a { text-decoration: none; color: #333; font-weight: bold; font-size: 14px; }
+
+/* --- 標題樣式 --- */
+.project-detail-section { padding-top: 150px; padding-bottom: 100px; }
+.project-header { text-align: center; margin-bottom: 80px; }
+
+.section-title-style {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 900;
+    color: #FFF462;
+    text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000;
+    margin-bottom: 15px;
+}
+
+.project-main-title { font-size: clamp(20px, 4vw, 32px); font-weight: 900; }
+.project-main-title .highlight {
+    background: linear-gradient(to bottom, transparent 60%, #FFF462 60%, #FFF462 90%, transparent 90%);
+    padding: 0 5px;
+}
+.title-divider { margin: 0 10px; font-weight: 300; }
+
+/* --- 圖文區塊 --- */
+.content-block { width: 100%; margin-bottom: 100px; text-align: center; }
+.image-wrap { width: 100%; margin-bottom: 30px; }
+.image-wrap img { width: 100%; height: auto; display: block; }
+
+.text-wrap { text-align: left; margin-top: 20px; }
+.text-wrap p { font-size: 16px; margin-bottom: 15px; }
+.sub-text { color: #444; }
+
+/* --- 影片占位區塊 --- */
+.block-label { text-align: left; font-weight: bold; margin-bottom: 15px; font-size: 16px; }
+/* --- 影片容器設定 --- */
+.video-container {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* 維持 16:9 比例 */
+    background-color: #E8E8E8; /* 影片載入前顯示的灰色 */
+    border-radius: 4px;
+    overflow: hidden; /* 確保影片角落不會超出圓角 */
+    position: relative;
+}
+
+/* --- 讓 iframe 填滿容器 --- */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-placeholder { text-align: center; }
+.video-url { font-size: clamp(16px, 3vw, 24px); font-weight: 900; margin-bottom: 5px; }
+.video-placeholder h3 { font-size: clamp(14px, 2.5vw, 20px); letter-spacing: 2px; }
+
+/* --- 獲獎與頁尾資訊 --- */
+.project-footer-awards { border-top: 1px solid #000; padding-top: 40px; margin-top: 40px; }
+.award-detail-list { list-style: none; text-align: left; }
+.award-detail-list li { font-size: 14px; margin-bottom: 8px; }
+.project-year { font-weight: 900; margin-top: 20px !important; }
+
+/* --- 頁尾 Footer --- */
+.footer-frame { border-top: 1px solid #eee; margin-top: 80px; padding: 60px 0; }
+.footer-info { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; padding: 0 60px; }
+.f-col { display: flex; flex-direction: column; gap: 5px; }
+.f-logo { display: flex; align-items: center; gap: 10px; font-weight: 900; margin-bottom: 10px; }
+.f-logo img { width: 35px; }
+.f-nav { display: flex; gap: 20px; font-weight: bold; margin-top: 10px; }
+.f-nav a { text-decoration: none; color: #000; font-size: 14px; }
+
+/* --- RWD 響應式 --- */
+@media (max-width: 768px) {
+    .navbar { padding: 15px 25px; }
+    .nav-links { display: none; } /* 隱藏桌機選單，改用 JS 控制漢堡選單 */
+    
+    .menu-toggle { display: block; cursor: pointer; }
+    .menu-toggle .bar { display: block; width: 25px; height: 3px; margin: 5px; background: #333; transition: 0.3s; }
+
+    .project-header { margin-bottom: 50px; }
+    .project-main-title .highlight { display: block; width: fit-content; margin: 0 auto 5px; }
+    .title-divider { display: none; }
+
+    .content-block { margin-bottom: 60px; }
+    .footer-info { flex-direction: column; align-items: center; text-align: center; gap: 40px; }
+    .f-nav { justify-content: center; flex-wrap: wrap; }
+}

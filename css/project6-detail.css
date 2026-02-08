@@ -1,0 +1,135 @@
+/* --- 1. 基礎佈局 --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: "Noto Sans TC", "Noto Sans JP", sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.8;
+}
+
+/* 容器：左右留白與內容置中 */
+.container {
+    width: 90%;
+    max-width: 1000px; /* 寬螢幕時限制寬度，產生左右留白 */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 讓內容水平置中 */
+}
+
+/* --- 2. 導覽列 --- */
+.navbar {
+    position: fixed; top: 0; width: 100%; display: flex;
+    justify-content: space-between; align-items: center;
+    padding: 15px 60px; z-index: 1000; background: rgba(255,255,255,0.95);
+    border-bottom: 1px solid #eee;
+}
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #000; font-weight: 900; }
+.logo img { width: 30px; }
+.nav-links { display: flex; gap: 40px; list-style: none; }
+.nav-links a { text-decoration: none; color: #333; font-weight: bold; font-size: 14px; }
+
+/* 漢堡按鈕 (手機版顯示) */
+.menu-toggle { display: none; cursor: pointer; }
+.menu-toggle .bar {
+    display: block; width: 25px; height: 3px; margin: 5px auto;
+    background-color: #333; transition: 0.3s ease-in-out;
+}
+
+/* --- 3. 標題設計 --- */
+.project-detail-section { padding-top: 160px; padding-bottom: 80px; }
+.project-header { text-align: center; margin-bottom: 100px; }
+
+/* PROJECTS 空心字 */
+.section-title-style {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 900;
+    color: #FFF462;
+    text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000;
+    margin-bottom: 15px;
+}
+
+/* 螢光筆主標題 */
+.project-main-title {
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 900;
+    line-height: 1.6;
+}
+
+.project-main-title .highlight {
+    display: inline;
+    background: linear-gradient(to bottom, transparent 60%, #FFF462 60%, #FFF462 90%, transparent 90%);
+    padding: 0 4px;
+}
+
+.project-main-title .title-divider { margin: 0 15px; font-weight: 300; }
+
+/* --- 4. 圖文區塊 --- */
+.content-block {
+    width: 100%;
+    margin-bottom: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-wrap { width: 100%; margin-bottom: 40px; }
+.image-wrap img { width: 100%; height: auto; display: block; border-radius: 4px; }
+
+.text-wrap { width: 100%; text-align: left; }
+.text-wrap p { font-size: 16px; line-height: 2.2; letter-spacing: 0.5px; }
+
+/* --- 5. 底部獲獎/工作資訊 --- */
+.project-footer-awards {
+    width: 100%; margin-top: 40px; padding-top: 40px;
+    border-top: 1px solid #000; text-align: left;
+}
+.award-detail-list { list-style: none; }
+.award-detail-list li { font-size: 14px; line-height: 2.2; color: #444; }
+.project-year { margin-top: 25px; font-weight: 900; color: #000; }
+
+/* --- 6. 頁尾 --- */
+.footer-info {
+    width: 100%; padding: 60px 80px; display: flex; justify-content: space-between;
+    background: #fff; border-top: 1px solid #000; margin-top: 100px;
+}
+.f-col { display: flex; flex-direction: column; gap: 8px; }
+.f-logo { display: flex; align-items: center; gap: 10px; font-weight: 900; }
+.f-logo img { width: 35px; }
+.f-nav { display: flex; gap: 30px; font-weight: 900; }
+.f-nav a { text-decoration: none; color: #000; }
+
+/* --- 7. RWD 手機版調整 --- */
+@media (max-width: 768px) {
+    .navbar { padding: 15px 25px; }
+    .menu-toggle { display: block; z-index: 1001; }
+
+    /* 手機版選單 */
+    #nav-list {
+        display: none; flex-direction: column; position: absolute;
+        top: 70px; left: 0; width: 100%; background: rgba(255,255,255,0.98);
+        padding: 30px 0; text-align: center; box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        gap: 25px;
+    }
+
+    #nav-list.active { display: flex !important; }
+
+    /* 漢堡變叉叉動畫 */
+    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .project-detail-section { padding-top: 120px; }
+    .project-main-title .title-divider { display: none; }
+    .project-main-title .highlight {
+        display: block; width: fit-content; margin: 0 auto 10px;
+    }
+
+    .footer-info {
+        flex-direction: column; align-items: center; text-align: center;
+        gap: 40px; padding: 40px 20px;
+    }
+    .f-nav { flex-wrap: wrap; justify-content: center; gap: 15px; }
+}

@@ -1,0 +1,258 @@
+/* ==========================================================================
+   1. 基礎重置與佈局控制
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Noto Sans TC", "Noto Sans JP", sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* 內容容器：控制左右留白，寬度設為 1100px 以符合大螢幕美感 */
+.container {
+    width: 90%;
+    max-width: 1100px; 
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+/* ==========================================================================
+   2. 導覽列 (與首頁一致)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 900;
+}
+
+.logo img { width: 30px; }
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+/* 手機選單按鈕 */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #333;
+    transition: 0.3s;
+}
+
+/* ==========================================================================
+   3. 專案標題區 (螢光筆與空心字)
+   ========================================================================== */
+.project-detail-section {
+    padding-top: 160px;
+    padding-bottom: 80px;
+}
+
+.project-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+/* PROJECTS 空心字 */
+.section-title-style {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 900;
+    color: #FFF462;
+    text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000;
+    margin-bottom: 15px;
+}
+
+/* 主標題螢光筆效果 */
+.project-main-title {
+    font-size: clamp(22px, 4.5vw, 38px);
+    font-weight: 900;
+}
+
+.project-main-title .highlight {
+    display: inline-block;
+    background: linear-gradient(to bottom, transparent 65%, #FFF462 65%, #FFF462 90%, transparent 90%);
+    padding: 0 10px;
+}
+
+.project-main-title .title-divider {
+    margin: 0 15px;
+    font-weight: 300;
+}
+
+/* ==========================================================================
+   4. 圖文內容區塊 (關鍵對齊設定)
+   ========================================================================== */
+.content-block {
+    width: 100%;
+    margin-bottom: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-wrap {
+    width: 100%; /* 撐滿 container */
+    margin-bottom: 35px;
+}
+
+.image-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.text-wrap {
+    width: 100%; /* 關鍵：寬度 100% 才能與圖片對齊 */
+    text-align: justify; /* 左右對齊讓邊緣整齊 */
+}
+
+.text-wrap p {
+    font-size: 18px; /* 針對 1080p 優化字體大小 */
+    line-height: 2.1;
+    letter-spacing: 0.8px;
+    color: #333;
+}
+
+/* ==========================================================================
+   5. 頁尾專案資訊
+   ========================================================================== */
+.project-footer-awards {
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 40px;
+    border-top: 1px solid #000;
+}
+
+.award-detail-list {
+    list-style: none;
+}
+
+.award-detail-list li {
+    font-size: 15px;
+    line-height: 2.2;
+    color: #444;
+}
+
+.award-detail-list a {
+    color: #444;
+    text-decoration: underline;
+}
+
+.project-year {
+    margin-top: 20px;
+    font-weight: 900;
+    color: #000;
+}
+
+/* ==========================================================================
+   6. 頁尾 (Global Footer)
+   ========================================================================== */
+.footer-frame {
+    background: #fff;
+    border-top: 1px solid #000;
+    margin-top: 80px;
+}
+
+.footer-info {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.f-col { display: flex; flex-direction: column; gap: 8px; }
+.f-logo { display: flex; align-items: center; gap: 10px; font-weight: 900; margin-bottom: 10px; }
+.f-logo img { width: 35px; }
+.f-nav { display: flex; gap: 30px; font-weight: 900; }
+.f-nav a { text-decoration: none; color: #000; transition: 0.3s; }
+.f-copyright { font-size: 14px; color: #777; }
+
+/* ==========================================================================
+   7. RWD 響應式
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .navbar { padding: 15px 30px; }
+    .footer-info { padding: 60px 40px; }
+}
+
+@media (max-width: 768px) {
+    .navbar { padding: 15px 25px; }
+    
+    .menu-toggle { display: block; }
+
+    #nav-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 30px 0;
+        text-align: center;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+    }
+
+    #nav-list.active { display: flex; }
+
+    .project-detail-section { padding-top: 120px; }
+    .project-main-title .title-divider { display: none; }
+    .project-main-title .highlight {
+        display: block;
+        width: fit-content;
+        margin: 0 auto 10px;
+    }
+
+    .text-wrap { text-align: left; }
+    .text-wrap p { font-size: 16px; }
+
+    .footer-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+    }
+    .f-nav { flex-wrap: wrap; justify-content: center; gap: 15px; }
+}

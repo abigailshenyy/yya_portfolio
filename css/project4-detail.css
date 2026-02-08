@@ -1,0 +1,321 @@
+/* ==========================================================================
+   1. 基礎重置與全域樣式
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Noto Sans TC", "Noto Sans JP", sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.8;
+    overflow-x: hidden; /* 防止手機版左右晃動 */
+}
+
+/* 內容容器：控制左右留白與內容置中 */
+.container {
+    width: 90%;
+    max-width: 1000px; /* 內容最寬 1000px，超過則兩側留白 */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 讓內部所有區塊水平置中 */
+}
+
+/* ==========================================================================
+   2. 導覽列 (Navbar)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 900;
+}
+
+.logo img {
+    width: 30px;
+}
+
+/* 桌機版選單 */
+.nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #888;
+}
+
+/* 手機版漢堡按鈕 (預設隱藏) */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #333;
+    transition: 0.3s ease-in-out;
+}
+
+/* ==========================================================================
+   3. 專案標題區 (Project Header)
+   ========================================================================== */
+.project-detail-section {
+    padding-top: 160px; /* 預留導覽列高度 */
+    padding-bottom: 80px;
+}
+
+.project-header {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+/* PROJECTS 空心字體 */
+.section-title-style {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 900;
+    color: #FFF462;
+    /* 製作黑邊空心效果 */
+    text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000;
+    margin-bottom: 15px;
+}
+
+/* 螢光筆主標題 */
+.project-main-title {
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 900;
+    line-height: 1.6;
+}
+
+.project-main-title .highlight {
+    display: inline;
+    /* 漸層底色模擬螢光筆效果，防止折行重疊 */
+    background: linear-gradient(to bottom, transparent 60%, #FFF462 60%, #FFF462 90%, transparent 90%);
+    padding: 0 4px;
+}
+
+.project-main-title .title-divider {
+    margin: 0 15px;
+    font-weight: 300;
+    color: #333;
+}
+
+/* ==========================================================================
+   4. 圖文區塊內容
+   ========================================================================== */
+.content-block {
+    width: 100%;
+    margin-bottom: 120px; /* 區塊間的大間隔 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-wrap {
+    width: 100%;
+    margin-bottom: 40px; /* 圖片與文字的間距 */
+}
+
+.image-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px; /* 輕微圓角 */
+}
+
+.text-wrap {
+    width: 100%;
+    text-align: left; /* 文字靠左對齊 */
+}
+
+.text-wrap p {
+    font-size: 16px;
+    line-height: 2.1;
+    letter-spacing: 0.5px;
+    color: #333;
+}
+
+/* ==========================================================================
+   5. 獲獎資訊 (Footer Awards)
+   ========================================================================== */
+.project-footer-awards {
+    width: 100%;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid #000;
+}
+
+.award-detail-list {
+    list-style: none;
+}
+
+.award-detail-list li {
+    font-size: 14px;
+    line-height: 2.2;
+    color: #444;
+}
+
+.project-year {
+    margin-top: 25px;
+    font-weight: 900;
+    color: #000;
+}
+
+/* ==========================================================================
+   6. 頁尾 (Global Footer)
+   ========================================================================== */
+.footer-frame {
+    background: #fff;
+    border-top: 1px solid #000;
+    margin-top: 100px;
+}
+
+.footer-info {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.f-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.f-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.f-logo img {
+    width: 35px;
+}
+
+.f-nav {
+    display: flex;
+    gap: 30px;
+    font-weight: 900;
+}
+
+.f-nav a {
+    text-decoration: none;
+    color: #000;
+    transition: 0.3s;
+}
+
+.f-nav a:hover {
+    opacity: 0.6;
+}
+
+/* ==========================================================================
+   7. RWD 響應式設計
+   ========================================================================== */
+
+/* 平板尺寸 (1024px 以下) */
+@media (max-width: 1024px) {
+    .navbar { padding: 15px 30px; }
+    .footer-info { padding: 60px 40px; }
+}
+
+/* 手機尺寸 (768px 以下) */
+@media (max-width: 768px) {
+    .navbar { padding: 15px 25px; }
+
+    /* 顯示漢堡按鈕 */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* 手機選單樣式：對應 ID #nav-list */
+    #nav-list {
+        display: none; /* 預設隱藏 */
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* 導覽列高度 */
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.98);
+        padding: 30px 0;
+        text-align: center;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        gap: 25px;
+    }
+
+    /* 當 JS 加入 .active 時顯示選單 */
+    #nav-list.active {
+        display: flex !important;
+    }
+
+    /* 漢堡按鈕動畫樣式 */
+    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* 專案標題手機版微調 */
+    .project-detail-section { padding-top: 120px; }
+    .project-main-title .title-divider { display: none; } /* 手機版隱藏分隔線 */
+    .project-main-title .highlight {
+        display: block; /* 強制標題在手機版拆成兩行 */
+        width: fit-content;
+        margin: 0 auto 10px;
+    }
+
+    .project-header { margin-bottom: 60px; }
+    .content-block { margin-bottom: 80px; }
+    .text-wrap p { font-size: 15px; }
+
+    /* 頁尾堆疊佈局 */
+    .footer-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+        padding: 50px 20px;
+    }
+    .f-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+}

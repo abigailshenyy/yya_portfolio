@@ -1,0 +1,126 @@
+
+/* ==========================================================================
+   1. 佈局核心：左右留白與置中
+   ========================================================================== */
+.container {
+    width: 90%;
+    max-width: 1000px; /* 限制最大寬度以維持精緻感 */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-detail-section {
+    padding-top: 150px; /* 避開導覽列 */
+    padding-bottom: 100px;
+}
+
+/* ==========================================================================
+   2. 標題樣式 (還原設計圖)
+   ========================================================================== */
+.project-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+/* PROJECTS 空心字 */
+.section-title-style {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: clamp(40px, 8vw, 68px);
+    font-weight: 900;
+    color: #FFF462;
+    text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000;
+    margin-bottom: 10px;
+}
+
+/* 主標題 + 螢光筆效果 */
+.project-main-title {
+    font-size: clamp(20px, 4vw, 32px);
+    font-weight: 900;
+}
+
+.project-main-title .highlight {
+    background: linear-gradient(to bottom, transparent 60%, #FFF462 60%, #FFF462 90%, transparent 90%);
+    padding: 0 5px;
+}
+
+.project-main-title .title-divider {
+    margin: 0 10px;
+    font-weight: 300;
+}
+
+/* ==========================================================================
+   3. 內容區塊 (圖片置中、文字左對齊)
+   ========================================================================== */
+.content-block {
+    width: 100%;
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-wrap {
+    width: 100%;
+    max-width: 900px; /* 圖片可略窄於容器或保持一致 */
+    margin-bottom: 25px;
+}
+
+.image-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* 輕微陰影增加層次感 */
+}
+
+.text-wrap {
+    width: 100%;
+    max-width: 900px;
+    text-align: left; /* 文字左對齊 */
+}
+
+.text-wrap p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.8;
+}
+
+.project-year {
+    margin-top: 10px;
+    font-size: 14px !important;
+    font-weight: 500;
+    color: #666;
+}
+
+/* ==========================================================================
+   4. RWD 響應式調整
+   ========================================================================== */
+@media (max-width: 768px) {
+    .project-detail-section {
+        padding-top: 120px;
+    }
+
+    .project-header {
+        margin-bottom: 50px;
+    }
+
+    /* 手機版主標題拆行 */
+    .project-main-title .title-divider {
+        display: none;
+    }
+    .project-main-title .highlight {
+        display: block;
+        width: fit-content;
+        margin: 0 auto 5px;
+    }
+
+    .content-block {
+        margin-bottom: 60px;
+    }
+    
+    .text-wrap p {
+        font-size: 15px;
+        padding: 0 10px; /* 增加手機版文字與邊緣的呼吸感 */
+    }
+}

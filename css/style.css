@@ -1,0 +1,584 @@
+/* --- 初始化 --- */
+    * { 
+        margin: 0; 
+        padding: 0; 
+        box-sizing: border-box; 
+        font-family: "Noto Sans TC", 
+        sans-serif; 
+    }
+
+    html { 
+        scroll-behavior: smooth; 
+    }
+
+    body { 
+        overflow-x: hidden; 
+        background: #fff; 
+        color: #333; 
+    }
+
+    img { 
+        display: block; 
+        max-width: 100%; 
+    }
+
+    ul { 
+        list-style: none; 
+    }
+    
+    a { 
+        text-decoration: none; 
+        color: inherit; 
+    }
+
+    .frame { 
+        width: 100%; 
+        min-height: 100vh; 
+        position: relative; 
+        overflow: hidden; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; padding: 
+        80px 20px;
+    }
+
+/* Navbar */
+    .navbar { 
+        position: fixed; 
+        top: 0; 
+        width: 100%; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        padding: 15px 60px; 
+        z-index: 1000; 
+        background: rgba(255,255,255,0.95); 
+        border-bottom: 1px solid #eee; 
+    }
+    
+    .navbar .logo { 
+        display: flex; 
+        align-items: center; 
+        gap: 10px; 
+        font-weight: 900; 
+        font-size: 20px; 
+    }
+    
+    .navbar .logo img { 
+        width: 30px; 
+    }
+    
+    .nav-links { 
+        display: flex; 
+        gap: 40px; 
+    }
+    
+    .nav-links a { font-weight: bold; font-size: 16px; transition: 0.3s; }
+    
+    .nav-links a:hover { color: #FFF462; }
+    
+    .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    
+    .bar { width: 25px; height: 3px; background: #333; transition: 0.3s; }
+
+/* 標題通用 */
+.section-title-style {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: clamp(32px, 5vw, 68px);
+    font-weight: 900;
+    color: #FFF462;
+    text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000;
+    line-height: 1;
+}
+
+    /* --- Frame 1: Home (置中優化) --- */
+    .home-section { min-height: 90vh; padding-bottom: 140px; }
+    .slider-wrapper { z-index: 5; width: 100%; max-width: 1400px; position: relative; margin-top: 50px; }
+    .slider-track { display: flex; transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
+    .slide { flex: 0 0 33.333%; padding: 0 15px; transition: 0.5s; opacity: 0.6; transform: scale(0.9); cursor: pointer; }
+    .slide.active { opacity: 1; transform: scale(1.05); }
+    .slide img { width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+    .slide-inner { position: relative; padding: 30px 0; }
+    .s-text {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
+        white-space: nowrap;
+        font-weight: bold;
+        font-size: 16px;
+        opacity: 0;
+        transition: 0.4s;
+        z-index: 10;
+    }
+
+    .s-top { 
+        top: -35px; 
+        color: #000; 
+    }
+
+    .s-bottom { 
+        bottom: -10px; 
+        color: #888; 
+    }
+
+    .slide.active .s-text { 
+        opacity: 1; 
+    }
+
+    .slider-dots { 
+        display: flex; 
+        justify-content: 
+        center; gap: 15px; 
+        margin-top: 100px; 
+    }
+
+    .dot { 
+        width: 20px; 
+        height: 10px; 
+        background: #FFF462; 
+        border: 2px solid #000; 
+        border-radius: 10px; 
+        cursor: pointer; 
+        transition: 0.3s; 
+    }
+
+    .dot.active { 
+        width: 50px; 
+        background: #000; 
+    }
+
+    .hero-text-bg { 
+        position: absolute; 
+        top: 40%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        z-index: 1; 
+        text-align: center; 
+        pointer-events: none; 
+    }
+
+    .hero-text-bg .line { 
+        font-size: clamp(60px, 10vw, 150px); 
+        font-weight: 900; color: #FFF462; 
+        line-height: 0.9; 
+        text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000; 
+    }
+
+
+    /* --- Frame 2: About Me (縮減間距) --- */
+    .about-section {
+        padding-top: 20px; 
+    }
+
+    .about-container { 
+        display: flex; 
+        align-items: center; 
+        gap: 60px; 
+        max-width: 1200px; 
+        width: 90%; 
+    }
+
+    .about-description { 
+        margin: 20px 0 30px; 
+        line-height: 1.8; 
+        font-size: 16px; 
+    }
+
+    .btn-more-yellow { 
+        background: #FFF462; 
+        padding: 10px 25px; 
+        font-weight: bold; 
+        border: 2px solid #000; 
+        border-radius: 5px; 
+        display: inline-block; 
+    }
+    
+    .about-photo-wrap { position: relative; flex: 0 0 400px; }
+    .about-photo-wrap img { width: 100%; border-radius: 10px; z-index: 2; position: relative; }
+    .about-photo-wrap::after { content: ""; position: absolute; bottom: -15px; right: -15px; width: 100%; height: 100%; border-right: 10px solid #FFF462; border-bottom: 10px solid #FFF462; z-index: 1; border-radius: 10px; }
+    .section-title-style {
+        margin-bottom: 4px;
+        opacity: 0.8;
+    }
+
+    .about-name {
+        margin-top: 10px;
+        font-size: 26px;
+    }
+
+    /* --- Frame 3: Awards --- */
+    .gray-bg-section { background-color: #EEEEEE !important; border-top: 3px solid #000; padding-bottom: 140px; }
+    .awards-subtitle { font-size: 18px; font-weight: 700; margin-bottom: 45px; text-align: center; color: #000; }
+    .awards-grid { display: grid; grid-template-columns: repeat(3, 1fr); width: 85%; max-width: 1400px; margin: 0 auto; transform: translateX(90px); }
+    .year-label { display: inline-block; background: #FDE941; color: #000; font-weight: 700; font-size: 14px; padding: 2px 12px; border: 1px solid #000; border-radius: 4px; }
+    .award-list li { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 4px; font-weight: 500; }
+
+/* --- Frame 4: Projects (底圖與卡片修正) --- */
+.projects-folder-section {
+    background-color: #EEEEEE !important; /* 同 Awards 色確保無縫 */
+    background-image: url('../images/projects_bg.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% 100%; /* 強制佈滿 */
+    padding: 160px 0 100px; /* 移除左右 Padding 消除白邊 */
+    margin-top: -120px; /* 向上覆蓋白色縫隙 */
+    position: relative;
+    z-index: 5;
+    width: 100%;
+}
+
+.projects-header {
+    position: absolute;
+    top: 55px;
+    left: 60px;
+    width: calc(100% - 120px);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#projects .section-title-style {
+    font-size: clamp(32px, 4.5vw, 60px);
+    color: #FFFFFF !important;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, -2px 2px 0 #000;
+}
+.projects-title-jp { font-size: 24px; font-weight: 900; color: #000; border-bottom: 2px solid #000; padding-bottom: 4px; }
+
+/* 卡片網格 */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* 卡片本體 */
+.p-card { background: #fff; 
+    border: 2px solid #000; 
+    border-radius: 15px; 
+    overflow: hidden; display: flex; flex-direction: column; transition: 0.3s; }
+.p-card:hover { transform: translateY(-10px); }
+
+.p-img-box { height: 180px; overflow: hidden; 
+    border-bottom: 2px solid #EAEAEA; 
+}
+.p-img-box img { width: 100%; height: 100%; object-fit: cover; }
+
+.p-content { padding: 15px; flex: 1; display: flex; flex-direction: column; }
+.p-card-title { font-weight: 900; font-size: 16px; margin-bottom: 8px; }
+.p-card-desc { font-size: 13px; line-height: 1.5; color: #444; margin-bottom: 15px; }
+
+/* 修正：卡片底部 Tag 與 黃色箭頭圓圈 */
+.p-card-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.p-tag { 
+    background: #FFF462; 
+    border: 1.5px solid #000; 
+    border-radius: 5px; 
+    font-size: 12px; 
+    font-weight: 900; 
+    padding: 2px 10px; 
+}
+
+/* 黃色圓圈箭頭 */
+.p-arrow-circle { 
+    width: 32px; 
+    height: 32px; 
+    background-color: #FFF462; /* 黃色 */
+    border: 1.5px solid #000;
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-weight: 900; 
+    font-size: 18px;
+}
+
+/* Footer (同原版) */
+/* --- Footer 修正版 --- */
+
+/* 1. 移除 Frame 原有的 Padding 讓圖片滿版 */
+.footer-frame {
+    padding: 0 !important; /* 強制覆寫通用 frame 的 padding */
+    display: block;        /* 確保內容依序排列 */
+    width: 100%;
+}
+
+/* 2. 上方圖片區 */
+.quote-box {
+    width: 100%;
+    height: 550px; /* 根據設計圖可調整高度 */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.quote-box .bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 確保圖片不變形填滿 */
+    z-index: 1;
+}
+
+.footer-info {
+    margin-top: 40px;
+    border-top: 1px solid #000;
+}
+
+/* 3. 空心文字樣式 */
+.empathy-quote {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: transparent; /* 背景透明 */
+    -webkit-text-stroke: 1.5px #fff; /* 白色外框線 */
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: 2px;
+}
+
+/* "design" 實心樣式 */
+.empathy-quote .filled {
+    color: #fff;
+    -webkit-text-stroke: 0; /* 移除外框線 */
+}
+
+/* 4. 下方資訊區 */
+.footer-info {
+    width: 100%;
+    padding: 50px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: #fff;
+    border-top: 1px solid #000; /* 黑線位置 */
+}
+
+/* 三欄佈局通用 */
+.f-col {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 左側：Logo & Copyright */
+.f-left .f-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 900;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.f-left .f-logo img {
+    width: 35px;
+}
+.f-copyright {
+    font-size: 13px;
+    color: #666;
+}
+
+/* 中間：個人聯絡 */
+.f-mid {
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 500;
+}
+.f-name {
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+/* 右側：導覽連結 */
+.f-right .f-nav {
+    display: flex;
+    gap: 35px;
+}
+.f-right .f-nav a {
+    font-weight: 900;
+    font-size: 18px;
+    transition: 0.3s;
+}
+.f-right .f-nav a:hover {
+    color: #FFF462;
+}
+
+/* RWD 響應式微調 */
+@media (max-width: 991px) {
+    .footer-info {
+        flex-direction: column;
+        gap: 40px;
+        padding: 40px 30px;
+    }
+    .f-right .f-nav {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
+
+/* RWD */
+@media (max-width: 1100px) {
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-container { flex-direction: column; text-align: center; }
+}
+@media (max-width: 768px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .projects-header { top: 35px; left: 30px; width: calc(100% - 60px); }
+}
+
+
+/* --- RWD 響應式設定 --- */
+
+/* 平板尺寸 (1024px 以下) */
+@media (max-width: 1024px) {
+    .navbar { padding: 15px 30px; }
+    .about-container { gap: 30px; }
+    .awards-grid { grid-template-columns: repeat(2, 1fr); transform: translateX(0); width: 90%; }
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+
+/* 手機尺寸 (768px 以下) */
+@media (max-width: 768px) {
+    /* Navbar */
+    .menu-toggle { display: flex; align-items: center; gap: 8px; }
+    .menu-text { font-weight: 900; font-size: 14px; }
+    .burger { display: flex; flex-direction: column; gap: 4px; }
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background: #fff;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        padding: 40px 0;
+    }
+    .nav-links.active { left: 0; }
+
+    /* Home Section */
+    .hero-text-bg { display: none; } /* 手機版隱藏大背字避免凌亂 */
+    .slide { flex: 0 0 100%; padding: 0 10px; }
+    .slider-dots { margin-top: 40px; }
+
+    /* About Me */
+    .about-container { flex-direction: column; text-align: left; }
+    .about-photo-wrap { flex: 0 0 auto; width: 100%; max-width: 400px; margin-top: 30px; }
+    .section-title-style.align-left { text-align: left; }
+
+    /* Awards */
+    .awards-grid { grid-template-columns: 1fr; gap: 30px; transform: translateX(0); }
+    .award-group { margin-bottom: 20px; }
+
+    /* Projects (關鍵修改：依照 phone.jpg) */
+    .projects-folder-section {
+        background-image: url("../images/phone.png"); /* 換成 png */
+        background-color: transparent; /* ❗避免黃底蓋住圖 */
+        background-repeat: no-repeat;
+        background-size: cover; /* 或 contain，看設計 */
+        background-position: top center;
+        padding-top: 20px;
+    }
+    .projects-header {
+        position: static;
+        width: 90%;
+        margin: 0 auto 30px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .projects-title-jp { align-self: flex-end; }
+    .projects-grid { grid-template-columns: 1fr; width: 90%; }
+    
+    .p-card { border-radius: 20px; }
+    .p-card-title { font-size: 18px; }
+    .p-tag { background: #FDE941; color: #000; border: none; } /* 黑色標籤 */
+
+    /* Footer */
+    .footer-info {
+        flex-direction: column;
+        padding: 40px 20px;
+        align-items: center;
+        text-align: center;
+    }
+    .f-contact-mobile { margin: 20px 0; line-height: 1.8; font-weight: 500; }
+    .f-mid, .f-right .f-nav { display: none; } /* 隱藏電腦版欄位 */
+    
+    .back-to-top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 30px;
+    }
+    .back-to-top span { font-weight: 900; border-bottom: 2px solid #000; }
+    .arrow-up {
+        width: 50px;
+        height: 50px;
+        background: #FDE941;
+        border: 2px solid #000;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    /* 修正引言文字大小 */
+    .empathy-quote { font-size: 32px; -webkit-text-stroke: 1px #fff; }
+    .quote-box { height: 350px; }
+}
+
+
+
+
+
+/*修改手機版本的個資顯示*/
+/* --- 手機版 RWD 修改 --- */
+@media (max-width: 768px) {
+    .footer-info {
+        flex-direction: column; /* 讓三行內容垂直排列 */
+        align-items: center;    /* 內容置中 */
+        text-align: center;     /* 文字置中 */
+        padding: 40px 20px;     /* 減少手機版內距 */
+        gap: 30px;              /* 讓三個區塊之間有間距 */
+    }
+
+    .f-col {
+        display: flex !important; /* 確保沒有被設定為 none */
+        align-items: center;
+    }
+
+    .f-mid {
+        order: 2; /* 調整順序，讓聯絡資訊排在中間 */
+    }
+
+    .f-left { order: 1; }
+    .f-right { order: 3; }
+
+    /* 調整文字大小讓手機更好閱讀 */
+    .f-name {
+        font-weight: 900;
+        margin-bottom: 5px;
+    }
+}

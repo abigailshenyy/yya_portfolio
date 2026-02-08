@@ -1,0 +1,250 @@
+/* --- About Me 頁面專屬樣式 --- */
+
+/* 容器與佈局 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Hero Section */
+.aboutme-hero {
+    padding: 140px 0 60px;
+    background: #fff;
+}
+
+.hero-flex {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text .bio-name {
+    font-size: 32px;
+    font-weight: 900;
+    margin: 10px 0 25px;
+    color: #000;
+}
+
+.hero-text p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: justify;
+    color: #333;
+    line-height: 1.8;
+}
+
+/* 照片與裝飾框 */
+.profile-wrap {
+    flex: 0 0 380px;
+    position: relative;
+    padding: 15px;
+}
+
+.profile-img-box img {
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    z-index: 2;
+}
+
+.profile-wrap::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: 80%;
+    border-top: 15px solid #FFF462;
+    border-right: 15px solid #FFF462;
+    z-index: 1;
+}
+
+.profile-wrap::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+    height: 30%;
+    background: #FFF462;
+    z-index: 1;
+}
+
+/* --- 學經歷與專長 (雙欄佈局) --- */
+.details-section {
+    padding: 60px 0 100px;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 80px;
+}
+
+.detail-block-title {
+    font-size: 24px;
+    font-weight: 900;
+    border-bottom: 5px solid #FFF462;
+    display: inline-block;
+    margin-bottom: 30px;
+    padding-bottom: 2px;
+}
+
+.info-card {
+    margin-bottom: 40px;
+}
+
+.info-card h4 {
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 8px;
+    color: #000;
+}
+
+.info-card .date {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.info-card ul {
+    padding-left: 20px;
+}
+
+.info-card li {
+    list-style: disc;
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+/* 右欄：專長 */
+.skills-group {
+    margin-bottom: 25px;
+}
+
+.skills-group h5 {
+    font-size: 17px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.skills-group p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* --- AWARDS 獲獎紀錄 --- */
+.gray-bg-section {
+    background-color: #EEEEEE !important;
+    padding: 100px 0;
+    border-top: 2px solid #000;
+}
+
+.section-title-style.center {
+    text-align: center;
+}
+
+.awards-subtitle {
+    text-align: center;
+    font-weight: 900;
+    font-size: 18px;
+    margin: 4px 0 60px;
+}
+
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 140px;
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 0;
+}
+
+.year-label {
+    display: inline-block;
+    background: #FFF462;
+    color: #000;
+    font-weight: 900;
+    font-size: 14px;
+    padding: 2px 10px;
+    border: 1.5px solid #000;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.award-item {
+    margin-bottom: 18px;
+}
+
+.award-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.4;
+    margin-bottom: 4px;
+}
+
+.award-sub {
+    font-size: 12px;
+    color: #777;
+    font-weight: 500;
+}
+
+/* --- RWD 響應式修正 --- */
+@media (max-width: 991px) {
+    .section-title-style {
+        font-size: 26px !important;
+        white-space: nowrap;
+        letter-spacing: -0.5px;
+    }
+    .hero-text .bio-name {
+        font-size: 22px !important;
+        margin: 10px 0 20px;
+    }
+    .hero-text {
+        width: 100%;
+        padding: 0 5px;
+    }
+    .hero-flex {
+        flex-direction: column;
+        gap: 40px;
+        text-align: left;
+    }
+    .profile-wrap {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    .profile-wrap::before {
+        display: none;
+    }
+    .details-grid {
+        grid-template-columns: 1fr; 
+        gap: 40px;
+    }
+    .awards-grid {
+        grid-template-columns: 1fr; 
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 25px;
+    }
+    .section-title-style {
+        font-size: 36px;
+    }
+    .detail-block-title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+}

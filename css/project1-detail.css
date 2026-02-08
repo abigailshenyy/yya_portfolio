@@ -1,0 +1,187 @@
+/* ==========================================================================
+   基礎配置
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Noto Sans TC", sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.8;
+}
+
+/* 內容容器：左右留白關鍵 */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 內容水瓶置中 */
+}
+
+/* ==========================================================================
+   導覽列 (Navbar)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid #eee;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   專案標題區 (Project Header)
+   ========================================================================== */
+.project-detail-section {
+    padding-top: 160px;
+    padding-bottom: 80px;
+}
+
+.project-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-title-style {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 900;
+    color: #FFF462; /* 黃色填滿 */
+    text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000;
+    margin-bottom: 15px;
+}
+
+.project-main-title {
+    font-size: clamp(20px, 4vw, 32px);
+    font-weight: 900;
+}
+
+.project-main-title .highlight {
+    background: linear-gradient(to bottom, transparent 60%, #FFF462 60%, #FFF462 90%, transparent 90%);
+    padding: 0 4px;
+}
+
+.title-divider {
+    margin: 0 10px;
+}
+
+/* ==========================================================================
+   內容區塊
+   ========================================================================== */
+.content-block {
+    width: 100%;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.image-wrap {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.image-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.text-wrap {
+    width: 100%;
+    text-align: left; /* 文字依據設計稿靠左 */
+}
+
+.text-wrap p {
+    font-size: 16px;
+    line-height: 2;
+    color: #333;
+    letter-spacing: 0.5px;
+}
+
+/* 底部技術資訊與作品年份樣式 */
+.project-info-footer {
+    width: 100%;
+    text-align: left;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #444;
+}
+
+.project-year {
+    margin-top: 10px;
+    font-weight: 900;
+}
+
+/* ==========================================================================
+   頁尾 (Footer)
+   ========================================================================== */
+.footer-frame {
+    border-top: 1px solid #000;
+    margin-top: 60px;
+}
+
+.footer-info {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ==========================================================================
+   RWD 響應式
+   ========================================================================== */
+@media (max-width: 768px) {
+    .navbar { padding: 15px 25px; }
+    
+    .menu-toggle { display: block; cursor: pointer; }
+    .menu-toggle .bar { display: block; width: 25px; height: 3px; margin: 5px; background: #333; }
+
+    #nav-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px; left: 0; width: 100%;
+        background: white; padding: 20px 0;
+        text-align: center;
+    }
+
+    #nav-list.active { display: flex; }
+
+    .project-detail-section { padding-top: 120px; }
+    
+    /* 手機版標題拆行 */
+    .title-divider { display: none; }
+    .project-main-title .highlight { display: block; width: fit-content; margin: 0 auto 5px; }
+
+    .footer-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+        padding: 40px 20px;
+    }
+}
