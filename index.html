@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YYA studio | 沈筠雅 Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!--導覽列-->
+    <nav class="navbar">
+        <a href="#home" class="logo" id="logo-link">
+            <img src="images/logo.png" alt="Logo"> 
+            <span>YYA studio</span>
+        </a>
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="menu-text"></span>
+        <div class="burger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+        <ul class="nav-links" id="nav-list">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT ME</a></li>
+            <li><a href="#awards">AWARDS</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+        </ul>
+    </nav>
+
+    <!-- Frame 1: Home (輪播文字置中) -->
+    <section id="home" class="frame home-section">
+        <div class="hero-text-bg">
+            <div class="line">Yun Ya's</div>
+            <div class="line">PORTFOLIO</div>
+        </div>
+
+        <div class="slider-wrapper">
+            <div class="slider-container">
+                <div class="slider-track" id="sliderTrack">
+                    <div class="slide" onclick="handleSlideClick(0)">
+                        <div class="slide-inner">
+                            <!-- <div class="s-text s-top">Project 01 | ChopHub</div> -->
+                            <img src="images/home/Frame-1.jpg" alt="">
+                            <div class="s-text s-bottom">貓咪共和國｜前端網站</div>
+                        </div>
+                    </div>
+                    <div class="slide" onclick="handleSlideClick(1)">
+                        <div class="slide-inner">
+                            <!-- <div class="s-text s-top">Project 02 | 貓咪共和國</div> -->
+                            <img src="images/home/Frame-2.jpg" alt="">
+                            <div class="s-text s-bottom">CHOPHUB｜前端網站</div>
+                        </div>
+                    </div>
+                    <div class="slide" onclick="handleSlideClick(2)">
+                        <div class="slide-inner">
+                            <!-- <div class="s-text s-top">Project 03 | 結伴導航</div> -->
+                            <img src="images/home/Frame-3.jpg" alt="">
+                            <div class="s-text s-bottom">行人安全結伴導航｜UIUX</div>
+                        </div>
+                    </div>
+                    <div class="slide" onclick="handleSlideClick(3)">
+                        <div class="slide-inner">
+                            <!-- <div class="s-text s-top">Project 04 | 檢傷分類</div> -->
+                            <img src="images/home/Frame-4.jpg" alt="">
+                            <div class="s-text s-bottom">快速檢傷分類｜產品設計</div>
+                        </div>
+                    </div>
+                    <div class="slide" onclick="handleSlideClick(4)">
+                        <div class="slide-inner">
+                            <!-- <div class="s-text s-top">Project 05 | 老屋簷</div> -->
+                            <img src="images/home/Frame-5.jpg" alt="">
+                            <div class="s-text s-bottom">老屋簷新美積 | 書籍撰寫</div>
+                        </div>
+                    </div>
+                    <div class="slide" onclick="handleSlideClick(5)">
+                        <div class="slide-inner">
+                            <!-- <div class="s-text s-top">Project 06 | 插畫設計</div> -->
+                            <img src="images/home/Frame-6.jpg" alt="">
+                            <div class="s-text s-bottom">水彩插畫 | Procreate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-dots-container">
+                <div class="slider-dots">
+                    <span class="dot" onclick="currentSlide(0)"></span>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Frame 2: About Me (間距優化) -->
+    <section id="about" class="frame about-section">
+        <div class="about-container">
+            <div class="about-text">
+                <h2 class="section-title-style align-left">ABOUT ME / 關於我</h2>
+                <h3 class="about-name">沈筠雅 SHEN,YUN-YA</h3>
+                <div class="about-description">
+                    <p>畢業於台北科技大學 工業設計系創新設計所碩士班，就學期間曾獲多項設計獎項，並參與《老屋簷新美蹟》出版一書，累積觀察、敘事與跨域協作能力。曾於藝廊擔任美編行政，參與佈展、設計製作與藝術品導覽，強化美感呈現與溝通能力。在專案中深刻體會數位介面與互動設計對使用者體驗的重要性，因此進修前端工程師專業技術養成班，熟悉 HTML/CSS、JavaScript 與 Vue，並完成可上線之專案。具備設計思維與開發能力，能從使用者需求出發，打造兼具美感與功能性的數位產品。</p>
+                </div>
+                <a href="aboutme.html" class="btn-more-yellow">了解更多 →</a>
+            </div>
+            <div class="about-photo-wrap">
+                <img src="images/profile.jpg" alt="沈筠雅">
+            </div>
+        </div>
+    </section>
+
+    <!-- Frame 3: Awards (灰底) -->
+    <section id="awards" class="frame gray-bg-section">
+        <h2 class="section-title-style center">AWARDS</h2>
+        <p class="awards-subtitle">獲獎紀錄</p>
+        <div class="awards-grid">
+            <!-- 獲獎內容保持不變 -->
+            <div class="award-column">
+                <div class="award-group"><div class="year-label">2024</div><ul class="award-list"><li>第一屆 青銀文學獎</li><li>第九屆 兩岸新銳設計競賽 • 華燦獎</li></ul></div>
+                <div class="award-group"><div class="year-label">2023</div><ul class="award-list"><li>iF DESIGN STUDENT AWARD</li><li>International Busan Design Award</li><li>第八屆 兩岸新銳設計競賽 • 華燦獎</li><li>第二十屆 育秀盃創意獎</li></ul></div>
+            </div>
+            <div class="award-column">
+                <div class="award-group"><div class="year-label">2022</div><ul class="award-list"><li>ASIA CREATIVE DESIGN AWARD</li><li>ASIA CREATIVE DESIGN AWARD</li><li>TISDC 臺灣國際學生創意設計大賽</li><li>TISDC 臺灣國際學生創意設計大賽</li><li>永續智慧創新黑客松競賽</li><li>BRITAIN INTERNATIONAL COMPETITION</li><li>統一發票「幸福稅月」影片徵件競賽</li></ul></div>
+            </div>
+            <div class="award-column">
+                <div class="award-group"><div class="year-label">2021</div><ul class="award-list"><li>統一發票「動物奇幻之旅」租稅活動</li><li>統一發票「悠遊靚影 稅吸睛」</li></ul></div>
+                <div class="award-group"><div class="year-label">2020</div><ul class="award-list"><li>青年迴游創生工作坊</li></ul></div>
+                <div class="award-group"><div class="year-label">2019</div><ul class="award-list"><li>台積電青年築夢計畫</li><li>第二屆金塑獎桌遊設計</li><li>青年迴游創生工作坊</li><li>聯合大學大三期末總展</li></ul></div>
+                <div class="award-group"><div class="year-label">2018</div><ul class="award-list"><li>聯合大學大二期末總展</li></ul></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Frame 4: Projects (底圖佈滿 + 卡片黃色箭頭圓圈) -->
+    <section id="projects" class="projects-folder-section">
+        <div class="projects-header">
+            <h2 class="section-title-style">PROJECTS</h2>
+            <span class="projects-title-jp">作品集</span>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <a href="project-1.html" class="p-card">
+                <div class="p-img-box"><img src="images/projects/p1.jpg" alt=""></div>
+                <div class="p-content">
+                    <h4 class="p-card-title">貓咪共和國 | 個人專題</h4>
+                    <p class="p-card-desc">結合領養、TNR與捐款社區貓咪互助平台</p>
+                    <div class="p-card-footer">
+                        <span class="p-tag">網站前端</span>
+                        <div class="p-arrow-circle">→</div>
+                    </div>
+                </div>
+            </a>
+            <!-- Project 2 -->
+            <a href="project-2.html" class="p-card">
+                <div class="p-img-box"><img src="images/projects/p2.jpg" alt=""></div>
+                <div class="p-content">
+                    <h4 class="p-card-title">CHOPHUB | 團體專題</h4>
+                    <p class="p-card-desc">冷兵器愛好者的交流平台，結合UI/UX設計、前端實作與 3D 互動展示</p>
+                    <div class="p-card-footer">
+                        <span class="p-tag">網站前端</span>
+                        <div class="p-arrow-circle">→</div>
+                    </div>
+                </div>
+            </a>
+            <!-- Project 3 -->
+            <a href="project-3.html" class="p-card">
+                <div class="p-img-box"><img src="images/projects/p3.jpg" alt=""></div>
+                <div class="p-content">
+                    <h4 class="p-card-title">HappyWay | 行人安全結伴導航</h4>
+                    <p class="p-card-desc">透過互動回饋與路線評分，優化行人步行的安全與安心感，降低不安感</p>
+                    <div class="p-card-footer">
+                        <span class="p-tag">產品設計</span>
+                        <div class="p-arrow-circle">→</div>
+                    </div>
+                </div>
+            </a>
+            <!-- Project 4 -->
+            <a href="project-4.html" class="p-card">
+                <div class="p-img-box"><img src="images/projects/p4.jpg" alt=""></div>
+                <div class="p-content">
+                    <h4 class="p-card-title">Fast Track Triage Stickers｜快速檢傷分類</h4>
+                    <p class="p-card-desc">結合 App 判斷與 RFID 傷票，加速災害現場 的檢傷與送醫流程</p>
+                    <div class="p-card-footer">
+                        <span class="p-tag">產品設計</span>
+                        <div class="p-arrow-circle">→</div>
+                    </div>
+                </div>
+            </a>
+            <!-- Project 5 -->
+            <a href="project-5.html" class="p-card">
+                <div class="p-img-box"><img src="images/projects/p5.jpg" alt=""></div>
+                <div class="p-content">
+                    <h4 class="p-card-title">Tunnel Fire Drone｜隧道無人機</h4>
+                    <p class="p-card-desc">結合消防無人機與自動化指引，提升隧道火災的救援與逃生效率</p>
+                    <div class="p-card-footer">
+                        <span class="p-tag">產品設計</span>
+                        <div class="p-arrow-circle">→</div>
+                    </div>
+                </div>
+            </a>
+            <!-- Project 6 -->
+            <a href="project-6.html" class="p-card">
+                <div class="p-img-box"><img src="images/projects/p6.jpg" alt=""></div>
+                <div class="p-content">
+                    <h4 class="p-card-title">老屋簷新美積｜採訪、攝影、撰稿</h4>
+                    <p class="p-card-desc">老屋創生的採訪紀錄書籍，透過採訪、攝影與撰稿，呈現新竹老屋與品牌創生文化故事</p>
+                    <div class="p-card-footer">
+                        <span class="p-tag">編輯攝影</span>
+                        <div class="p-arrow-circle">→</div>
+                    </div>
+                </div>
+            </a>
+            <!-- Project 7 -->
+            <a href="project-7.html" class="p-card">
+                <div class="p-img-box"><img src="images/projects/p7.jpg" alt=""></div>
+                <div class="p-content">
+                    <h4 class="p-card-title">新竹縣社區總體營造紀錄｜紀實攝影</h4>
+                    <p class="p-card-desc">透過深入社區、參與活動與影像紀錄，呈現在地部落與地方文化故事</p>
+                    <div class="p-card-footer">
+                        <span class="p-tag">紀實攝影</span>
+                        <div class="p-arrow-circle">→</div>
+                    </div>
+                </div>
+            </a>
+            <!-- Project 8 -->
+            <a href="project-8.html" class="p-card">
+                <div class="p-img-box"><img src="images/projects/p8.jpg" alt=""></div>
+                <div class="p-content">
+                    <h4 class="p-card-title">水彩插畫｜Procreate</h4>
+                    <p class="p-card-desc">以鋼筆水彩描繪日常美食，結合 Procreate 創作插畫作品</p>
+                    <div class="p-card-footer">
+                        <span class="p-tag">插畫</span>
+                        <div class="p-arrow-circle">→</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+<!-- Footer -->
+    <section class="footer-frame">
+        <div class="quote-box">
+            <img src="images/footer-bg.jpg" class="bg-img" alt="">
+            <h2 class="empathy-quote">
+                What does <span class="filled">design</span><br>
+                with empathy look like?
+            </h2>
+        </div>
+        
+        <footer class="footer-info">
+            <!-- 左側：Logo 與 版權 -->
+            <div class="f-col f-left">
+                <div class="f-logo">
+                    <img src="images/logo.png" alt="Logo">
+                    <span>YYA studio</span>
+                </div>
+                <p class="f-copyright">© 2026 Shen Yun-Ya</p>
+            </div>
+
+            <!-- 中間：聯絡資訊 -->
+            <div class="f-col f-mid">
+                <p class="f-name">SHEN YUN YA</p>
+                <p class="f-email">abigailshenya@gmail.com</p>
+                <p class="f-tel">TEL. +886 0983-660-670</p>
+            </div>
+
+            <!-- 右側：選單連結 -->
+            <div class="f-col f-right">
+                <nav class="f-nav">
+                    <a href="#home">HOME</a>
+                    <a href="#about">ABOUT ME</a>
+                    <a href="#awards">AWARDS</a>
+                    <a href="#projects">PROJECTS</a>
+                </nav>
+            </div>
+        </footer>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
